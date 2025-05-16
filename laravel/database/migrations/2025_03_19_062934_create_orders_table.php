@@ -18,7 +18,7 @@ return new class extends Migration
             $table->Biginteger('customer_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('customer_id')->references('id')->on('customers');
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
     }
 
