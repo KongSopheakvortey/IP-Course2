@@ -34,6 +34,10 @@ class UploadController extends Controller
         Storage::disk('public')->put($thumbnailPath, $thumbnail);
         Storage::disk('minio')->put($thumbnailPath, $thumbnail);
 
-        return redirect()->route('gallery.index')->with('success', 'Image upload successfully');
+        return response()->json([
+            'success' => true,
+            'message' => 'Image uploaded successfully',
+            'path' => $uploadedPath
+        ]);
     }
 }
